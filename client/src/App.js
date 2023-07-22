@@ -1,5 +1,6 @@
 import './App.css';
 import {useRef, useState, useEffect} from 'react';
+import { uploadFile } from './services/api';
 
 function App() {
   const fileInputRef =useRef();
@@ -8,12 +9,12 @@ function App() {
     fileInputRef.current.click();
   }
   useEffect(()=>{
-    const getImage = () =>{
+    const getImage = async() =>{
       if(file){
         const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
-        uploadFile(data);
+        let response= await uploadFile(data);
       }
     }
     getImage();
