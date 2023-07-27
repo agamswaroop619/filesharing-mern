@@ -1,3 +1,8 @@
+
 export const uploadFiles = (request, response) =>{
-    return response.status(200).json({msg:'hello'});
+   try {
+    
+   } catch (error) {
+    console.error(error.message);
+   }
 }
