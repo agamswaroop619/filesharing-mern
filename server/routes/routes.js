@@ -4,6 +4,7 @@ import upload from "../utils/upload.js";
 
 const router = express.Router();
 
-router.post('/upload',upload.single('file'),uploadFiles);
-router.get('file/:file', downloadFiles);
+router.post('/upload', upload.single('file'), uploadFiles);
+router.get('/file/:fileId', downloadFiles); // Added a forward slash before 'file'
+
 export default router;

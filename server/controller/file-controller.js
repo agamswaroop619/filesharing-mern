@@ -14,18 +14,25 @@ export const uploadFiles = async(request, response) =>{
     response. status (500).json({error: error.message });
    }
 }
-
-export const downloadFiles = async(request,response)=>{
+export const downloadFiles = async (request, response) => {
     try {
-        const file= await File.findById(request.params.fileId);
+        console.log("Downloading file with ID:", request.params.fileId);
+
+        const file = await File.findById(request.params.fileId);
+        console.log("Found file:", file);
+
+        if (!file) {
+            return response.status(404).json({ error: "File not found" });
+        }
 
         file.downloadContent++;
 
         await file.save();
+        console.log("File updated:", file);
 
         response.download(file.path, file.name);
     } catch (error) {
-        console.error(error.message);
-        return response.status(500).json({error:error.message});
+        console.error("Error:", error.message);
+        return response.status(500).json({ error: error.message });
     }
 }
