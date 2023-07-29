@@ -3,7 +3,7 @@ import File from "../models/file.js";
 export const uploadFiles = async(request, response) =>{
    const fileObj ={
     path: request.file.path,
-    name: request.file.originalname
+    name: request.file.originalname,
    }
     try {
         const file= await File.create(fileObj);
