@@ -11,4 +11,4 @@ TECH STACK   =>   ExpressJS.
 WORKING   =>   The API that has been posted through the FrontEnd needs to be proccessed here. For Now we are hosting this on 'https://localhost:8000/'.
 FINAL RESULTS  =>  Path of uploaded file is being returned.
 
-(ASW HOSTING IN PROGRESS)
+(AWS HOSTING IN PROGRESS)
